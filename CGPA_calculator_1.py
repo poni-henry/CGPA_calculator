@@ -54,3 +54,5 @@ def weight_calculation():
 for course_unit in course:
     weight = course_unit["CU"] * weight_calculation()
     print(weight)
+    GPA = weight / 18
+    print(f"Your GPA is {GPA}")
