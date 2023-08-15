@@ -15,7 +15,7 @@ for course_unit in course:
     print(course_unit["course_unit"], Grade)
     
 def weight_calculation():
-    if Grade > 80:
+    if Grade >=80:
         GP = 5 * course_unit["CU"]
         #print(f"Your GPA in {Grade} is {GP}")
         return GP
