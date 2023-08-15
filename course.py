@@ -75,3 +75,5 @@ course = [
         ]
     }
 ]
+
+print(course[0]["semester_1"][0]["course_unit"])

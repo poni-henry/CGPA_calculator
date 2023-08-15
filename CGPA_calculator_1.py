@@ -6,7 +6,9 @@
 #Separating course units for each semester.
 import course
 
-for course_unit in course:
+
+#Trying to iterate through the course units in the semester and print out the course unit and the grade.
+for course_unit in semester_1:
     Grade= int(input("Please input your grade: "))
     print(course_unit["course_unit"], Grade)
     
