@@ -25,44 +25,43 @@ def semester():
         course_i = int(input("please input grade obtained: "))
         print(f"course_{i} = {course_i}")
         GP_calculation(course_i)
-    calculate_GPA(total_GP)
 
 def GP_calculation(course_i):
     if course_i > 80:
         GP = 5 * 4
-        print(GP)
+        print(f"Your GPA in {course_i} is {GP}")
         return True
     elif course_i > 75:
         GP = 4.5 * 4
-        print(GP)
+        print(f"Your GPA in {course_i} is {GP}")
         return True
     elif course_i > 69:
         GP = 4.0 * 4
-        print(GP)
+        print(f"Your GPA in {course_i} is {GP}")
         return True
     elif course_i > 65:
         GP = 3.5 * 4
-        print(GP)
+        print(f"Your GPA in {course_i} is {GP}")
         return True
     elif course_i > 60:
         GP = 3.0 * 4 
-        print(GP)
+        print(f"Your GPA in {course_i} is {GP}")
         return True
     elif course_i > 55:
         GP = 2.5 * 4
-        print(GP)
+        print(f"Your GPA in {course_i} is {GP}")
         return True
     elif course_i > 50:
         GP = 2.0 * 4
-        print(GP)
+        print(f"Your GPA in {course_i} is {GP}")
         return True
     elif course_i > 45:
         GP = 1.5 * 4
-        print(GP)
+        print(f"Your GPA in {course_i} is {GP}")
         return True
     else:
         GP = 1 * 4
-        print(GP)
+        print(f"Your GPA in {course_i} is {GP}")
         return True 
 
 while True:
