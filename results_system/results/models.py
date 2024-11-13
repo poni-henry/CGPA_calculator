@@ -1,32 +1,32 @@
 from django.db import models
+from django.contrib.auth.models import User
 
-# Create your models here.
-
-from django.db import models
-
-# Model to store students' details
 class Student(models.Model):
-    first_name = models.CharField(max_length=100)
-    last_name = models.CharField(max_length=100)
-    matriculation_number = models.CharField(max_length=20, unique=True)
+    user = models.OneToOneField(User, on_delete=models.CASCADE)
+    student_id = models.CharField(max_length=15, unique=True)
 
     def __str__(self):
-        return f"{self.first_name} {self.last_name}"
+        return f"{self.user.username} ({self.student_id})"
 
-# Model to store course details
 class Course(models.Model):
-    name = models.CharField(max_length=100)
     code = models.CharField(max_length=10, unique=True)
+    name = models.CharField(max_length=100)
     credit_hours = models.IntegerField()
 
     def __str__(self):
-        return self.name
+        return f"{self.code} - {self.name}"
 
-# Model to store students' grades
 class Grade(models.Model):
-    student = models.ForeignKey(Student, on_delete=models.CASCADE)
-    course = models.ForeignKey(Course, on_delete=models.CASCADE)
-    grade = models.CharField(max_length=2)  # 'A', 'B+', etc.
+    grade = models.CharField(max_length=2)
+    points = models.FloatField()  # Example: A = 4.0
 
     def __str__(self):
-        return f"{self.student} - {self.course} - {self.grade}"
+        return f"{self.grade} ({self.points})"
+
+class Result(models.Model):
+    student = models.ForeignKey(Student, on_delete=models.CASCADE)
+    course = models.ForeignKey(Course, on_delete=models.CASCADE)
+    grade = models.ForeignKey(Grade, on_delete=models.SET_NULL, null=True)
+
+    def __str__(self):
+        return f"{self.student} - {self.course} - {self.grade.grade}"
