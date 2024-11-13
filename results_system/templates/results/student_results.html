@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>{{ student.user.username }}'s Results</title>
+</head>
+<body>
+    <h1>Results for {{ student.user.username }}</h1>
+    <table>
+        <tr>
+            <th>Course</th>
+            <th>Grade</th>
+            <th>Credit Hours</th>
+        </tr>
+        {% for result in results %}
+        <tr>
+            <td>{{ result.course.name }}</td>
+            <td>{{ result.grade.grade }}</td>
+            <td>{{ result.course.credit_hours }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+    <h2>CGPA: {{ cgpa|floatformat:2 }}</h2>
+</body>
+</html>
